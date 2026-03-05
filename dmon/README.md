@@ -18,3 +18,7 @@ Cora
 ## Usage
 
 python train.py
+
+## Paper-Review
+
+https://github.com/Soonwoo3380/paper-review/blob/main/gnn/dmon.md
