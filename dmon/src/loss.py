@@ -3,6 +3,15 @@ import torch
 EPS = 1e-10
 
 def modularity_loss(C, edge_index, edge_weight, num_nodes):
+    
+    """
+    Parameters:
+    - C: [N, K] soft cluster assignments
+    - edge_index: [2, E]
+    - edge_weight: [E]
+    - num_nodes: int, number of nodes
+    """
+
     src, dst = edge_index # source, destination
     d = torch.zeros(num_nodes, device=C.device)
     d.scatter_add_(0, src, edge_weight)
