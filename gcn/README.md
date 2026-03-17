@@ -17,9 +17,9 @@ The goal is to clearly understand how node features are updated through:
 A GCN layer updates node features by aggregating information from neighboring nodes.
 The core operation can be summarized as:
 
-\[
+$\[
 h_j' = \sum_{i \in \mathcal{N}(j)} \frac{1}{\sqrt{d_i d_j}} \cdot W x_i
-\]
+\]$
 
 Where:
 - \(W\): learnable weight matrix
