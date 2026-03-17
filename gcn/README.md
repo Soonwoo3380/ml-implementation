@@ -17,14 +17,14 @@ The goal is to clearly understand how node features are updated through:
 A GCN layer updates node features by aggregating information from neighboring nodes.
 The core operation can be summarized as:
 
-$\[
+$$
 h_j' = \sum_{i \in \mathcal{N}(j)} \frac{1}{\sqrt{d_i d_j}} \cdot W x_i
-\]$
+$$
 
 Where:
-- \(W\): learnable weight matrix
-- \(d_i\): degree of node \(i\)
-- \(\mathcal{N}(j)\): neighbors of node \(j\)
+- $W$: learnable weight matrix
+- $d_i$: degree of node $i$
+- $\mathcal{N}(j)$: neighbors of node $j$
 
 ### Example Graph
 - Node 0 → feature: 1.0
