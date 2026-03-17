@@ -15,4 +15,4 @@ Applying on graphs that contain labeled and **non-labeled nodes**.
 
 
 ### Result
-The method for graph classification tasks outperforms related methods.
+The method for graph classification tasks outperforms related methods.ㅇ
