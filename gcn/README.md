@@ -1,4 +1,6 @@
-# Graph Convolutional Networks
+# SEMI-SUPERVISED CLASSIFICATION WITH GRAPH CONVOLUTIONAL NETWORKS
+Thomas N. Kipf, Max Welling
+--
 
 **Paper**  
 https://arxiv.org/abs/1609.02907
