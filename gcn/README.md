@@ -44,36 +44,24 @@ edge_index = torch.tensor([
 ```
 
 ### Overall Pipeline
-[1] Input node features `x`
-
-[2] Input `edge_index`
-
-[3] Add self-loops
-
-[4] Split into `row` (source) and `col` (target)
-
-[5] Compute node degree
-
-[6] Compute `deg_inv_sqrt`
-
-[7] Compute normalized edge weights `norm`
-
-[8] Apply linear transformation `x = W(x)`
-
-[9] Gather source node features `x[row]`
-
-[10] Reshape `norm` using `unsqueeze(-1)`
-
-[11] Compute edge messages `src = norm * x[row]`
-
-[12] Initialize output tensor `out`
-
-[13] Aggregate messages using `scatter_add_`
+[1] [Input node features `x`](#1-input-node-features-x)  
+[2] [Input `edge_index`](#2-input-edge_index)  
+[3] [Add self-loops](#3-add-self-loops)  
+[4] [row / col separation](#4-row--col-separation)  
+[5] [Degree computation](#5-degree-computation)  
+[6] [Inverse sqrt degree](#6-inverse-sqrt-degree)  
+[7] [Edge normalization](#7-edge-normalization)  
+[8] [Linear transformation](#8-linear-transformation)  
+[9] [Gather source node features](#9-gather-source-node-features)  
+[10] [Reshape norm](#10-reshape-norm)  
+[11] [Compute messages](#11-compute-messages)  
+[12] [Initialize output](#12-initialize-output)  
+[13] [Aggregate messages](#13-aggregate-messages)
 
 ## Step-by-Step
 
 #### [1] Input node features `x`
-- Shape: `[num_nodes, in_channels]
+- Shape: `[num_nodes, in_channels]`
 - Meaning: feature vector per node = node feature
 ```Python
 x = torch.tensor([
