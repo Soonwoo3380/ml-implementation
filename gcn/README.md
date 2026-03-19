@@ -183,6 +183,7 @@ for each edge (i → j):
 
 #### Final Output
 ```python
+# sum the messages for each target node
 out = [
   [1.0000+1.6328],
   [0.8164+2.4492+1.3333],
