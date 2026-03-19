@@ -1,4 +1,4 @@
-# SEMI-SUPERVISED CLASSIFICATION WITH GRAPH CONVOLUTIONAL NETWORKS
+# Semi-Supervised Classficiation with Graph Convolutional Networks
 Thomas N. Kipf, Max Welling
 --
 
