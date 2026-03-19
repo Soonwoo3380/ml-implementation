@@ -44,15 +44,15 @@ edge_index = torch.tensor([
 ```
 
 ### Overall Pipeline
-[1] [Input node features `x`](#1-input-node-features-x)  
-[2] [Input `edge_index`](#2-input-edge_index)  
-[3] [Add self-loops](#3-add-self-loops)  
-[4] [row / col separation](#4-row--col-separation)  
-[5] [Degree computation](#5-degree-computation)  
-[6] [Inverse sqrt degree](#6-inverse-sqrt-degree)  
-[7] [Edge normalization](#7-edge-normalization)  
-[8] [Linear transformation](#8-linear-transformation)  
-[9] [Gather source node features](#9-gather-source-node-features)  
+[01] [Input node features `x`](#1-input-node-features-x)  
+[02] [Input `edge_index`](#2-input-edge_index)  
+[03] [Add self-loops](#3-add-self-loops)  
+[04] [row / col separation](#4-row--col-separation)  
+[05] [Degree computation](#5-degree-computation)  
+[06] [Inverse sqrt degree](#6-inverse-sqrt-degree)  
+[07] [Edge normalization](#7-edge-normalization)  
+[08] [Linear transformation](#8-linear-transformation)  
+[09] [Gather source node features](#9-gather-source-node-features)  
 [10] [Reshape norm](#10-reshape-norm)  
 [11] [Compute messages](#11-compute-messages)  
 [12] [Initialize output](#12-initialize-output)  
@@ -60,7 +60,7 @@ edge_index = torch.tensor([
 
 ## Step-by-Step
 
-#### [1] Input node features `x`
+#### [01] Input node features `x`
 - Shape: `[num_nodes, in_channels]`
 - Meaning: feature vector per node = node feature
 ```Python
@@ -71,13 +71,13 @@ x = torch.tensor([
 ])
 ```
 
-#### [2] Input `edge_index`
+#### [02] Input `edge_index`
 - Shape: `[2, num_edges]`
 - Meaning:
   - first row → source nodes
   - second row → target nodes
 
-#### [3] Add self-loops
+#### [03] Add self-loops
 - Each node connects to itself
 - Ensures a node keeps its own information
 ```python
@@ -87,7 +87,7 @@ edge_index = torch.tensor([
 ])
 ```
 
-#### [4] row / col separation
+#### [04] row / col separation
 ```python
 row, col = edge_index
 ```
@@ -95,7 +95,7 @@ row, col = edge_index
 - `row`: source nodes (where edges depart from)
 - `col`: target nodes (where edges arrive at)
 
-#### [5] Degree computation
+#### [05] Degree computation
 ```python
 deg = degree(col)
 ```
@@ -105,20 +105,20 @@ deg = degree(col)
   - deg(1) = 3
   - deg(2) = 2
   
-#### [6] Inverse sqrt degree
+#### [06] Inverse sqrt degree
 ```python
 deg = degree(col)
 ```
 - Used for normalization
 - Prevents high-degree nodes from dominating
 
-#### [7] Edge normalization
+#### [07] Edge normalization
 ```python
 norm = deg_inv_sqrt[row] * deg_inv_sqrt[col]
 ```
 - The effect of degree on the influence of connected nodes
 
-#### [8] Linear transformation
+#### [08] Linear transformation
 ```python
 x = W(x)
 ```
@@ -127,7 +127,7 @@ x = W(x)
   - To transform node features into a learnable representation to propagate only task-relevant information to neighbors
   - `It is incapable of perfomring downstream tasks, such as classification and clustering, on its own.`
 
-#### [9] Gather source node features
+#### [09] Gather source node features
 ```python
 x[row]
 ```
