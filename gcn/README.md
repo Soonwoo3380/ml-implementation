@@ -195,5 +195,7 @@ out = [
 - `norm`: decides **how much to send**
 - `scatter_add_`: decides **where to send**
 
-### One-line summary
+---
+
+# One-line summary
 Nodes with similar properties are embedded into similar vectors, while nodes with different properties are mapped to distinguishable representations.
