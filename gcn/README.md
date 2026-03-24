@@ -109,7 +109,7 @@ deg = degree(col)
   
 #### [06] Inverse sqrt degree
 ```python
-deg = degree(col)
+deg_inv_sqrt = deg.pow(-0.5)
 ```
 - Used for normalization
 - Prevents high-degree nodes from dominating
@@ -201,4 +201,4 @@ out = [
 ---
 
 # One-line summary
-Nodes with similar properties are embedded into similar vectors, while nodes with different properties are mapped to distinguishable representations.
+Ultimately, GCN updates node representations by aggregating and averaging information from neighboring nodes on a graph.
