@@ -364,5 +364,9 @@ return torch.mean(torch.stack(head_outs, dim=0), dim=0)
 - `softmax`: decides **relative importance among neighbors (per target node)**
 - `out.index_add_`: decides **where to send**
 
+---
+
 # One-line summary
 Ultimately, GCN updates node representations by aggregating and averaging information from neighboring nodes on a graph.
+
+---
