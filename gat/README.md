@@ -7,7 +7,7 @@ https://arxiv.org/abs/1710.10903
 
 ## Understanding GAT Message Passing Step by Step
 
-This repository demonstrates the internal workings of a Graph Attention Networks (GAT) layer by implementing it from scratch and examining each intermediate step.
+This repository demonstrates the internal workings of a GAT layer by implementing it from scratch and examining each intermediate step.
 
 The goal is to clearly understand how node features are updated through:
 - input dropout
@@ -369,4 +369,3 @@ return torch.mean(torch.stack(head_outs, dim=0), dim=0)
 # One-line summary
 Ultimately, GCN updates node representations by aggregating and averaging information from neighboring nodes on a graph.
 
----
